@@ -72,6 +72,16 @@ export default function Home(){
             setIsCollapseFinanceiro(!isCollapseFinaceiro)
     }
 
+    function submit(){
+        let response = document.querySelectorAll('input')
+        let array = []
+        response.forEach((r, i) => {
+            array = [...array, `permissão ${i+1}: `+r.checked]
+        });
+
+        console.log(array)
+    }
+
     return(
         <HomeContainer>
             <Title>Tabela de Permissões</Title>
@@ -258,7 +268,7 @@ export default function Home(){
             </Table>
 
             <ButtonContainer>
-                <Button>CADASTRAR</Button>
+                <Button onClick={submit}>CADASTRAR</Button>
             </ButtonContainer>
         </HomeContainer>
     )
